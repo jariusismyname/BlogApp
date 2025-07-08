@@ -11,8 +11,8 @@ export class LoginComponent {
 
   onLogin(event: Event): void {
     event.preventDefault();
-    // Add login logic later
-    console.log('Login submitted');
+    // Demo login — skip validation
+    this.router.navigate(['/home']);
   }
 
   goToRegister(): void {
