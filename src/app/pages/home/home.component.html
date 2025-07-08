@@ -21,9 +21,14 @@
   <div *ngFor="let post of posts; index as i" class="post-card">
     <p>{{ post }}</p>
     <div class="post-actions">
-      <button (click)="editPost(i)">Edit</button>
-      <button (click)="deletePost(i)" class="delete-btn">Delete</button>
-    </div>
+  <button (click)="editPost(i)" title="Edit">
+    <span class="material-icons">edit</span>
+  </button>
+  <button (click)="deletePost(i)" class="delete-btn" title="Delete">
+    <span class="material-icons">delete</span>
+  </button>
+</div>
+
   </div>
 </div>
 
