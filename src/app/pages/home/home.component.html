@@ -1,35 +1,51 @@
 <app-header></app-header>
 
-<div class="home-container">
-  <h2>Post Something</h2>
-
-  <form (ngSubmit)="editingIndex !== null ? updatePost() : addPost()" class="post-form">
-    <input
-      type="text"
-      [(ngModel)]="newPost"
-      name="post"
-      placeholder="What's on your mind?"
-      required
-    />
-
-    <div class="buttons">
-      <button type="submit">{{ editingIndex !== null ? 'Update' : 'Post' }}</button>
-      <button *ngIf="editingIndex !== null" type="button" (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+<div class="home-layout">
+      <!-- Right Column: Friend Suggestions -->
+  <div class="friend-suggestions">
+    <h3>People You May Know</h3>
+    <div class="friend-card" *ngFor="let friend of friendSuggestions">
+      <div class="friend-name">{{ friend.name }}</div>
+      <button (click)="addFriend(friend.name)">
+        <span class="material-icons">person_add</span> Add Friend
+      </button>
     </div>
-  </form>
-
-  <div *ngFor="let post of posts; index as i" class="post-card">
-    <p>{{ post }}</p>
-    <div class="post-actions">
-  <button (click)="editPost(i)" title="Edit">
-    <span class="material-icons">edit</span>
-  </button>
-  <button (click)="deletePost(i)" class="delete-btn" title="Delete">
-    <span class="material-icons">delete</span>
-  </button>
-</div>
-
   </div>
 </div>
+
+  <!-- Left Column: Posts -->
+  <div class="home-container" [@fadeSlide]>
+    <h2>Post Something</h2>
+
+    <form (ngSubmit)="editingIndex !== null ? updatePost() : addPost()" class="post-form">
+      <input
+        type="text"
+        [(ngModel)]="newPost"
+        name="post"
+        placeholder="What's on your mind?"
+        required
+      />
+      <div class="buttons">
+        <button type="submit">{{ editingIndex !== null ? 'Update' : 'Post' }}</button>
+        <button *ngIf="editingIndex !== null" type="button" (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+      </div>
+    </form>
+
+    <div *ngFor="let post of posts; index as i" class="post-card">
+      <p>{{ post }}</p>
+      <div class="post-actions">
+        <button (click)="editPost(i)" title="Edit">
+          <span class="material-icons">edit</span>
+        </button>
+        <button (click)="deletePost(i)" class="delete-btn" title="Delete">
+          <span class="material-icons">delete</span>
+        </button>
+        <button title="Like"><span class="material-icons">thumb_up</span></button>
+        <button title="Comment"><span class="material-icons">comment</span></button>
+        <button title="Share"><span class="material-icons">share</span></button>
+      </div>
+    </div>
+  </div>
+
 
 <app-footer></app-footer>

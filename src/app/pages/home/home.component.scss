@@ -61,12 +61,19 @@ padding-bottom: 6rem; // 👈 Ensures space before the footer
     }
   }
 
-  .post-card {
-    background: #f4f6ff;
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-top: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+ .post-card {
+  background: #f4f6ff;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
 
     p {
       margin-bottom: 0.75rem;
@@ -109,5 +116,106 @@ padding-bottom: 6rem; // 👈 Ensures space before the footer
   }
 }
 
+  }
+}
+.post-social {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eceeff;
+    color: #4e54c8;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #d7dbff;
+    }
+
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+.home-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.home-container {
+  flex: 2;
+  min-width: 300px;
+}
+
+.friend-suggestions {
+  flex: 1;
+  min-width: 250px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    margin-bottom: 1rem;
+    color: #4e54c8;
+  }
+
+  .friend-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    margin-bottom: 0.75rem;
+
+    .friend-name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    button {
+      background-color: #4e54c8;
+      color: white;
+      border: none;
+      border-radius: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      .material-icons {
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: #3b40a4;
+      }
+    }
   }
 }

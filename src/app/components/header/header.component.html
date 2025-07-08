@@ -1,6 +1,19 @@
 <header class="header">
-  <h1>Blog App by jmcb</h1>
-  <button class="logout-btn" (click)="logout()">
-    <span class="material-icons">logout</span> Logout
-  </button>
+  <div class="left-section">
+    <h1>Blog App by jmcb</h1>
+  </div>
+
+  <div class="right-section">
+    <nav class="nav-icons">
+      <button title="Home"><span class="material-icons">home</span></button>
+      <button title="Profile"><span class="material-icons">person</span></button>
+      <button title="Add Friends"><span class="material-icons">person_add</span></button>
+      <button title="Videos"><span class="material-icons">video_library</span></button>
+    </nav>
+
+    <button class="logout-btn" (click)="logout()">
+      <span class="material-icons">logout</span>
+      <span class="text">Logout</span>
+    </button>
+  </div>
 </header>

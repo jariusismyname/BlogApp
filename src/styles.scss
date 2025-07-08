@@ -1,6 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
+  margin: 0;
+}
+
+.page-body {
+  min-height: calc(100vh - 60px); // adjust 60px to your header/footer height
+  display: flex;
+  flex-direction: column;
+}
+
+.home-wrapper {
+  flex-grow: 1;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
 }
