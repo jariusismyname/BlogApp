@@ -1,9 +1,30 @@
 <app-header></app-header>
 
 <div class="home-container">
-  <h1>Welcome to the Home Page!</h1>
-  <p>This is a demo page you see after login.</p>
-</div>
+  <h2>Post Something</h2>
 
+  <form (ngSubmit)="editingIndex !== null ? updatePost() : addPost()" class="post-form">
+    <input
+      type="text"
+      [(ngModel)]="newPost"
+      name="post"
+      placeholder="What's on your mind?"
+      required
+    />
+
+    <div class="buttons">
+      <button type="submit">{{ editingIndex !== null ? 'Update' : 'Post' }}</button>
+      <button *ngIf="editingIndex !== null" type="button" (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+    </div>
+  </form>
+
+  <div *ngFor="let post of posts; index as i" class="post-card">
+    <p>{{ post }}</p>
+    <div class="post-actions">
+      <button (click)="editPost(i)">Edit</button>
+      <button (click)="deletePost(i)" class="delete-btn">Delete</button>
+    </div>
+  </div>
+</div>
 
 <app-footer></app-footer>
